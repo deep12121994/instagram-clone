@@ -14,7 +14,8 @@ app.use(require('./routes/user'));
  
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 })
 mongoose.connection.on('connected',() => {
     console.log('connected to mongo yehh');
