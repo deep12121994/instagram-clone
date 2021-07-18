@@ -6,7 +6,6 @@ const Profile = () => {
     const [myPics, setMyPics] = useState([]);
     const {state,dispatch} = useContext(UserContext);
     const [image,setImage] = useState("");
-    const [url,setUrl] = useState("");
     //console.log(state)
 
     useEffect(() => {
