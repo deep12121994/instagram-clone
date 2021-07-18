@@ -13,6 +13,9 @@ const userSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },pic:{
+        type: String,
+        default: "https://res.cloudinary.com/dtubo8vjd/image/upload/v1626606205/deflt_user_img_l9fxsp.png"
     },
     followers:[
         {

@@ -7,13 +7,13 @@ const Home = () => {
     const {state,dispatch} = useContext(UserContext);
     useEffect(()=> {
         let unmounted = false;
-        fetch('/allpost',{
+        fetch('/getsubpost',{
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
             }
         }).then(res => res.json())
         .then(result => {
-            console.log("Home: ",result);
+            //console.log(result);
             if(!unmounted)
                 setData(result.posts);
         })
@@ -115,7 +115,7 @@ const Home = () => {
     return (
         <div className="home">
             {
-                data && data.map(item => {
+                data.map(item => {
                     return(
                         <div className="card home-card" key={item._id}>
                             <h5 style={{padding:"5px"}}>
@@ -148,7 +148,7 @@ const Home = () => {
                                 item.comments.map(record => {
                                     return(
                                         <h6 key={record._id}>
-                                        <span style={{fontWeight:"500"}}>{record.postedBy.name} </span>
+                                        <span style={{fontWeight:"500"}}>{record.postedBy.name}</span>
                                         {record.text}
                                         </h6>
                                     )

@@ -6,6 +6,8 @@ const Profile = () => {
     const [myPics, setMyPics] = useState([]);
     const {state,dispatch} = useContext(UserContext);
 
+    console.log(state)
+
     useEffect(() => {
         let unmounted = false;
         fetch('/mypost',{
@@ -39,7 +41,7 @@ const Profile = () => {
                 
                 <div>
                     <img style={{width:"160px",height:"160px",borderRadius:"80px"}}
-                        src = "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        src = {state ? state.pic : "loading..."}
                         alt="user image"/>
                 </div>
 

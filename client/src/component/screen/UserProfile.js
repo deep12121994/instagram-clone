@@ -6,8 +6,8 @@ const Profile = () => {
 
     const [userProfile,setProfile] = useState();
     const {state,dispatch} = useContext(UserContext);
-    const [showfollow, setShowFollow] = useState(false);
     const {userid} = useParams();
+    const [showfollow, setShowFollow] = useState(state?!state.following.includes(userid):true);
     //console.log(userid)
     
     useEffect(() => {
@@ -79,8 +79,8 @@ const Profile = () => {
                 return {
                      ...prevState,
                      user:{
-                         ...prevState.user,
-                         followers:[...prevState.user.followers, data._id]
+                        ...prevState.user,
+                        followers:newFollower
                     }
                 }
             })

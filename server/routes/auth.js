@@ -17,7 +17,7 @@ router.get('/',(req,res) => {
 })
 
 router.post('/signup',(req,res) => {
-    const {name,email,password} = req.body;
+    const {name,email,password,pic} = req.body;
     if(!email || !password || !name){
         return  res.status(404).json({error:'Please fill all the field'});
     }
@@ -32,7 +32,8 @@ router.post('/signup',(req,res) => {
             const user = new User({
                 email,
                 password: hashedpassword,
-                name
+                name,
+                pic
             })
     
             user.save()
@@ -66,8 +67,8 @@ router.post('/signin',(req,res) => {
             if(doMatch){
                 //res.json({message:"Login Successfully"});
                 const token = jwt.sign({_id:savedUser},JWT_SECRET);
-                const {_id,name,email} = savedUser
-                res.json({token, user:{_id,name,email}});
+                const {_id,name,email,followers,following,pic} = savedUser
+                res.json({token, user:{_id,name,email,followers,following,pic}});
             }else{
                 return res.status(404).json({error:"Invalid Email or Password"});
             }
