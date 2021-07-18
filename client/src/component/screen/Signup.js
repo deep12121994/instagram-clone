@@ -70,11 +70,11 @@ const Signup = () => {
         })
     }
 
-    const PostData = () => {
+    const PostData = () => {   
         if(image){
-            uploadPic()
+            uploadPic() // if user upload profile pic
         } else {
-            uploadFields()
+            uploadFields()  // if user not upload pic
         }
     } 
 
@@ -103,7 +103,8 @@ const Signup = () => {
                 <div className="file-field input-field">
                     <div className="btn #64b5f6 blue darken-1">
                         <span>Upload Pic</span>
-                        <input type="file" onChange={(e) => setImage(e.target.files[0])}/>
+                        <input type="file" 
+                        onChange={(e) => setImage(e.target.files[0])}/>
                     </div>
                     <div className="file-path-wrapper">
                         <input className="file-path validate" type="text" placeholder="Upload one or more files"/>

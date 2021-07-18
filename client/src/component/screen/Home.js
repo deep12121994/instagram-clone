@@ -5,6 +5,7 @@ import {UserContext} from '../../App';
 const Home = () => {
     const [data,setData] = useState([]);
     const {state,dispatch} = useContext(UserContext);
+    
     useEffect(()=> {
         let unmounted = false;
         fetch('/allpost',{
