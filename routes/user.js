@@ -85,7 +85,8 @@ router.put("/unfollow", requireLogin, (req, res) => {
 });
 
 router.put("/updatepic", requireLogin, (req, res) => {
-  console.log("req: ", req);
+  console.log("req: ", req.user._id);
+  console.log("pic: ", req.body.pic);
   User.findByIdAndUpdate(
     req.user._id,
     { $set: { pic: req.body.pic } },
