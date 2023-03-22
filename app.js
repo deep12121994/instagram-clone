@@ -2,10 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 4000;
-const { MONGOURI } = require("./config/key");
+// const { MONGOURI } = require("./config/key");
 
-mongoose.connect(MONGOURI, {
+mongoose.connect(process.env.MONGOURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
